@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -12,58 +12,17 @@ import json from '../data/input.json';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent{
   // Parse data from JSON file
   puzzleBoards = json.puzzleBoards;
 
-  ngAfterViewInit() {
-   // this.setPuzzleBoardsBackground();
-  }
 
-  /*
-  
-
- control = [
-  [[], [], [], [], []],
-  [['item1'], ['item2'], ['item3'], ['item4'], ['item5']],
-];
-
-  */
   control = [];
   constructor() {
     this.control = this.buildControlArray();
 
   }
 
-/*
-
-  setPuzzleBoardsBackground(){
-  //  document.getElementsByClassName("pbBox")[0].style.backgroundColor="blue"; ${json.puzzleBoards[i].image}
-    let pbBoxes = document.getElementsByClassName("pbBox") as HTMLCollectionOf<HTMLElement>;
-
-    console.log(pbBoxes.item(0));
-    for (let i = 0; i < pbBoxes.length; i++){
-    
-    let image = `../assets/images/pb.png`;
-      console.log(`${this.puzzleBoards[i].id}`);
-      console.log(image);
-      console.log(pbBoxes.item(i));
-      pbBoxes.item(i).style.backgroundImage = "/assets/images/pb.png)";
-    }
-    console.log(pbBoxes);
-  }
- 
-  setPuzzleBoardsBackground() {
-    let pbBoxes = document.getElementsByClassName("pbBox") as HTMLCollectionOf<HTMLElement>;
-    let img = "../data/pb.png";
-  
-    for (let i = 0; i < pbBoxes.length; i++) {
-      const element = pbBoxes.item(i);
-      console.log(element);
-      element.style.backgroundColor = "red";
-    }
-  }
- */
   // Takes in puzzleboards, return control
   // Is this. better or better to pass puzzleBoards as parameter
   // Why does item have to be in an array?

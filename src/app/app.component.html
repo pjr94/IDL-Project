@@ -12,8 +12,7 @@
           *ngFor="let item of puzzleBoards; let i = index"
           class="pbBox"
           id="{{ item.id }}"
-          [style.backgroundImage]="'url(/assets/images/pb.png)'"
-
+          [style.backgroundImage]="'url(' + item.image + ')'"
         >
           <!-- Get slots amount and create array in order to use ngFor-->
           <div
@@ -23,10 +22,18 @@
             [cdkDropListData]="control[i][j]"
             (cdkDropListDropped)="drop($event)"
           >
-          <!--  [style.backgroundImage]="'url(' + item.Items.[0].["Image"] -->
-            <div class="drag-box" *ngFor="let drags of control[i][j]" cdkDrag
-            [style.backgroundImage]="'url(../assets/images/star.png)'">  
-          {{drags}}
+            <div *ngFor="let drags of control[i][j]" class="drag-box">
+              <div
+                class="drag-box"
+                *ngIf="drags !== []"
+                cdkDrag
+                [style.backgroundImage]="
+                  'url(' + puzzleBoards[1].Items[0].image + ')'
+                "
+              >
+                {{ drags }}
+              </div>
+            </div>
           </div>
         </div>
       </div>

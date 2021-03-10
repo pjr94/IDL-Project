@@ -1,7 +1,7 @@
 {
   "puzzleBoards": [
     {
-      "image": "pb.png",
+      "image": "/assets/images/pb.png",
       "id": 1,
       "xpos": 1000,
       "ypos": 1000,
@@ -9,12 +9,12 @@
       "Items": [{}]
     },
     {
-      "image": "pb.png",
+      "image": "/assets/images/pb.png",
       "id": 2,
       "xpos": 1000,
       "ypos": 8000,
       "slots": [{ "amount": 5, "width": 50, "height": 50 }],
-      "Items": [{ "image": "star.png", "amount": 5 }]
+      "Items": [{ "image": "/assets/images/star.png", "amount": 5 }]
     }
   ]
 }
