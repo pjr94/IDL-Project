@@ -1,39 +1,35 @@
-<div class="container">
-  <div cdkDropListGroup>
-    <!-- Each slot is its own list (limited to 1 item per list)-->
-    <div class="example-container">
-      <h2></h2>
+<div cdkDropListGroup>
+  <!-- Each slot is its own list (limited to 1 item per list)-->
+  <h2></h2>
 
-      <!--  All lists in this div are part of the same group (ie can move items between) -->
-      <div cdkDropListGroup>
-        <!-- For each item in puzzleBoards, create a new list   [style.backgroundImage]="'url(/assets/images/pb.png)'"        style="background-image: url(../data/pb.png); width: 1000px;background-repeat: no-repeat;
+  <!--  All lists in this div are part of the same group (ie can move items between) -->
+  <div cdkDropListGroup>
+    <!-- For each item in puzzleBoards, create a new list   [style.backgroundImage]="'url(/assets/images/pb.png)'"        style="background-image: url(../data/pb.png); width: 1000px;background-repeat: no-repeat;
           height: 1000px;"-->
-        <div
-          *ngFor="let item of puzzleBoards; let i = index"
-          class="pbBox"
-          id="{{ item.id }}"
-          [style.backgroundImage]="'url(' + item.image + ')'"
-        >
-          <!-- Get slots amount and create array in order to use ngFor-->
+    <div
+      *ngFor="let item of puzzleBoards; let i = index"
+      class="pbBox"
+      id="{{ item.id }}"
+      [style.backgroundImage]="'url(' + item.image + ')'"
+    >
+      <!-- Get slots amount and create array in order to use ngFor-->
+      <div
+        *ngFor="let x of arrayOne(item.slots[0].amount); let j = index"
+        class="slot"
+        cdkDropList
+        [cdkDropListData]="control[i][j]"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div *ngFor="let drags of control[i][j]" class="drag-box">
           <div
-            *ngFor="let x of arrayOne(item.slots[0].amount); let j = index"
-            class="slot"
-            cdkDropList
-            [cdkDropListData]="control[i][j]"
-            (cdkDropListDropped)="drop($event)"
+            class="drag-box"
+            *ngIf="drags !== []"
+            cdkDrag
+            [style.backgroundImage]="
+              'url(' + puzzleBoards[1].Items[0].image + ')'
+            "
           >
-            <div *ngFor="let drags of control[i][j]" class="drag-box">
-              <div
-                class="drag-box"
-                *ngIf="drags !== []"
-                cdkDrag
-                [style.backgroundImage]="
-                  'url(' + puzzleBoards[1].Items[0].image + ')'
-                "
-              >
-                {{ drags }}
-              </div>
-            </div>
+            {{ drags }}
           </div>
         </div>
       </div>

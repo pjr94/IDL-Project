@@ -2,17 +2,17 @@
   "puzzleBoards": [
     {
       "image": "/assets/images/pb.png",
-      "id": 1,
-      "xpos": 1000,
-      "ypos": 1000,
+      "id": "1",
+      "xpos": 100,
+      "ypos": 100,
       "slots": [{ "amount": 5, "width": 50, "height": 50 }],
       "Items": [{}]
     },
     {
       "image": "/assets/images/pb.png",
-      "id": 2,
-      "xpos": 1000,
-      "ypos": 8000,
+      "id": "2",
+      "xpos": 100,
+      "ypos": 800,
       "slots": [{ "amount": 5, "width": 50, "height": 50 }],
       "Items": [{ "image": "/assets/images/star.png", "amount": 5 }]
     }
